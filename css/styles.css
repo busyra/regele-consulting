@@ -141,12 +141,12 @@ h1, h2, h3, h4, h5, h6, .nav-link {
 }
 
 /* --- Service Background Images --- */
-.bg-1 { background-image: url('/assets/recycling.jpg'); }
-.bg-2 { background-image: url('/assets/consumer-products.jpg'); }
-.bg-3 { background-image: url('/assets/agriculture.jpg'); }
-.bg-4 { background-image: url('/assets/housing.jpg'); }
-.bg-5 { background-image: url('/assets/energy.jpg'); }
-.bg-6 { background-image: url('/assets/infrastructure.jpg'); }
+.bg-1 { background-image: url('assets/recycling.jpg'); }
+.bg-2 { background-image: url('assets/consumer-products.jpg'); }
+.bg-3 { background-image: url('assets/agriculture.jpg'); }
+.bg-4 { background-image: url('assets/housing.jpg'); }
+.bg-5 { background-image: url('assets/energy.jpg'); }
+.bg-6 { background-image: url('assets/infrastructure.jpg'); }
 
 /* --- Footer & Contact --- */
 .footer-info {
