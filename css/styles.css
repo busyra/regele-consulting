@@ -1,4 +1,6 @@
-/* --- Global Styles --- */
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================= */
 html {
   scroll-behavior: smooth;
 }
@@ -14,64 +16,13 @@ body {
   color: #333;
 }
 
+/* =========================================
+   2. TYPOGRAPHY
+   ========================================= */
 h1, h2, h3, h4, h5, h6, .nav-link {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-
-/* --- Navbar --- */
-/* This makes the navbar sit transparently on top of the hero image */
-.navbar-clear {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: transparent !important;
-}
-
-.navbar-brand {
-  font-weight: 700;
-  color: var(--dark-gray) !important;
-  font-size: 1.5rem;
-  max-width: 200px !important;
-}
-
-.navbar-brand img {
-  max-width: 100%;
-}
-
-.nav-link {
-  font-size: 0.9rem;
-  color: #333 !important; /* Kept dark for visibility */
-  font-weight: 600;
-}
-
-/* White Hamburger Menu Fix */
-.navbar-toggler {
-    border-color: #ffffff !important;
-}
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-}
-
-/* Mobile Menu Fix: Adds white background when menu opens */
-@media (max-width: 991px) {
-  .navbar-collapse {
-    background-color: #ffffff;
-    padding: 1rem;
-    margin-top: 0.5rem;
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* --- Hero & Sections --- */
-.hero-section img {
-  max-width: 100%;
-  width: 100%; /* Ensures it fills width */
-  height: auto;
 }
 
 .section-title {
@@ -81,7 +32,106 @@ h1, h2, h3, h4, h5, h6, .nav-link {
   letter-spacing: 2px;
 }
 
-/* --- About Section --- */
+/* =========================================
+   3. NAVIGATION BAR
+   ========================================= */
+/* Transparent bar that sits ON TOP of the hero image */
+.navbar-clear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent !important;
+  padding-top: 20px;
+}
+
+/* Centered Logo Logic */
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 1001;
+  text-align: center;
+}
+
+.navbar-brand img {
+  max-width: 100%;
+  max-height: 80px;
+  padding-top: 25px;
+}
+
+@media (max-width: 991px) {
+  .navbar-brand img {
+    max-height: 66px;
+  }
+}
+
+
+/* Links pushed to the right */
+.navbar-nav {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  color: #333 !important; /* Dark text for visibility */
+  font-weight: 600;
+}
+
+/* Hamburger Menu (Mobile) Styling */
+.navbar-toggler {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  z-index: 1052;
+  border-color: #ffffff !important; /* White border */
+}
+
+/* Force the Hamburger Icon to be White */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Mobile Dropdown Specifics */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    /* 1. This "floats" the menu so it doesn't push elements around */
+    position: absolute;
+
+    /* 2. Position it below your logo (adjust 100px if needed) */
+    top: 100px;
+
+    /* 3. Stretch it across the screen */
+    left: 0;
+    width: 100%;
+
+    /* 4. Styling */
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    /* 5. Ensure it sits on top of the hero image */
+    z-index: 1050;
+  }
+}
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero-section img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block; /* Removes tiny white space under images */
+}
+
+/* =========================================
+   5. ABOUT SECTION
+   ========================================= */
 .about-box {
   background-color: var(--light-blue-bg);
   height: 100%;
@@ -90,57 +140,58 @@ h1, h2, h3, h4, h5, h6, .nav-link {
   justify-content: center;
 }
 
-/* --- Service Cards (The Fix) --- */
+/* =========================================
+   6. SERVICES GRID
+   ========================================= */
 .service-card {
-    position: relative;
-    height: 350px;
-    border-radius: 8px;
-    overflow: hidden;
-    /* These properties ensure the image shows correctly */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+  position: relative;
+  height: 350px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .service-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* The 0.6 value controls darkness. Lower it (e.g., 0.4) for brighter images. */
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 30px;
-    transition: background-color 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Default darkness */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  transition: background-color 0.3s ease;
 }
 
 .service-card:hover .service-overlay {
-     background-color: rgba(0, 0, 0, 0.75); /* Darkens slightly on hover */
+  background-color: rgba(0, 0, 0, 0.75); /* Darker on hover */
 }
 
 .service-content {
-    color: #ffffff;
-    z-index: 2;
+  color: #ffffff;
+  z-index: 2;
 }
 
 .service-content h4 {
-    color: #fff; /* White text for contrast against dark overlay */
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
 /* --- Service Background Images --- */
+/* Ensure these images exist in your 'assets' folder */
 .bg-1 { background-image: url('../assets/recycling.jpg'); }
 .bg-2 { background-image: url('../assets/consumer-products.jpg'); }
 .bg-3 { background-image: url('../assets/agriculture.jpg'); }
@@ -148,7 +199,9 @@ h1, h2, h3, h4, h5, h6, .nav-link {
 .bg-5 { background-image: url('../assets/energy.jpg'); }
 .bg-6 { background-image: url('../assets/infrastructure.jpg'); }
 
-/* --- Footer & Contact --- */
+/* =========================================
+   7. FOOTER & CONTACT
+   ========================================= */
 .footer-info {
   font-size: 0.9rem;
   line-height: 1.6;
